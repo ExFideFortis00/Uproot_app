@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
 
   has_many :moves
 
-  validates(:first_name, { :presence => true})
-  validates(:last_name, { :presence => true})
+  validates(:first_name, :last_name, :email, :current_address, :city, :state, :zip, { :presence => true})
+
   validates(:email, { :uniqueness   => { case_sensitive: false }})
-  
+  validates(:state, { length: { maximum: 2 })
+  validates(:zip, 	{ numericality: { only_integer: true })
+  validates(:zip,   { length: { maximum: 5 })
+end
+
+
