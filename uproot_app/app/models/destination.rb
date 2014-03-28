@@ -7,8 +7,8 @@ class Destination < ActiveRecord::Base
 	has_many :accommodations
 	has_many :movers
 
-	validates(:state, { length: { maximum: 2 }})
+	validates(:state, { length: { is: 2 }})
   	validates(:zip, 	{ numericality: { only_integer: true }})
-  	validates(:zip,   { length: { maximum: 5 }})
+  	validates(:zip,   { length: { is: 5 }})
 
 end

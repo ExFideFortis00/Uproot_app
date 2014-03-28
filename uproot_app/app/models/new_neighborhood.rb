@@ -1,3 +1,3 @@
-class New_Neighborhood < ActiveRecord::Base
+class NewNeighborhood < ActiveRecord::Base
 	belongs_to :destination
 end
