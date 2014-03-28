@@ -1,3 +1,14 @@
+	# == Schema Information
+#
+# Table name: moves
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  budget     :decimal(10, 2)   default(0.0)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Move < ActiveRecord::Base
 
 	belongs_to :user

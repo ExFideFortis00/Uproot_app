@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  first_name      :string(255)      not null
+#  last_name       :string(255)      not null
+#  email           :string(255)      not null
+#  current_address :string(255)      not null
+#  city            :string(255)      not null
+#  state           :string(2)        not null
+#  zip             :integer          not null
+#  admin?          :boolean          default(FALSE)
+#  password_digest :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
 # Adds methods to set and authenticate against a BCrypt password.
   # in active record we'll have a password and password_confirmation

@@ -11,16 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328180054) do
+ActiveRecord::Schema.define(version: 20140328232834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "accommodations", force: true do |t|
-    t.integer  "destination_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "belongings", force: true do |t|
     t.integer  "move_id"
@@ -33,37 +27,9 @@ ActiveRecord::Schema.define(version: 20140328180054) do
     t.datetime "updated_at"
   end
 
-  create_table "destinations", force: true do |t|
-    t.integer  "move_id"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state",      limit: 2
-    t.string   "zip",        limit: 5
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "dwellings", force: true do |t|
-    t.integer  "destination_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "movers", force: true do |t|
-    t.integer  "destination_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "moves", force: true do |t|
     t.integer  "user_id"
     t.decimal  "budget",     precision: 10, scale: 2, default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "new_neighborhoods", force: true do |t|
-    t.integer  "destination_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,12 +44,6 @@ ActiveRecord::Schema.define(version: 20140328180054) do
     t.integer  "zip",             limit: 8,                 null: false
     t.boolean  "admin?",                    default: false
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "vehicles", force: true do |t|
-    t.integer  "destination_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
