@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
   validates(:email, { :uniqueness   => { case_sensitive: false }})
   validates(:state, { length: { is: 2 }})
-  validates(:zip, 	{ numericality: { only_integer: true }})
-  validates(:zip,   { length: { is: 5 }})
+  # validates(:zip, 	{ numericality: { only_integer: true }})
+  # validates(:zip,   { length: { is: 5 }})
 end
 
 

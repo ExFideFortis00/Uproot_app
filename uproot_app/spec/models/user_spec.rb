@@ -12,7 +12,7 @@ describe User do
 	it { should validate_presence_of(:zip) }
 
 	it { should have_secure_password }
-	it { should validate_numericality_of(:zip) }
+	# it { should validate_numericality_of(:zip) }
 	it { should ensure_length_of(:state).is_equal_to(2) }
-	it { should ensure_length_of(:zip).is_equal_to(5) }
+	# it { should ensure_length_of(:zip).is_equal_to(5) }
 end
