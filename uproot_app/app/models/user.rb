@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   validates(:first_name, :last_name, :email, :current_address, :city, :state, :zip, { :presence => true})
 
   validates(:email, { :uniqueness   => { case_sensitive: false }})
-  validates(:state, { length: { maximum: 2 })
-  validates(:zip, 	{ numericality: { only_integer: true })
-  validates(:zip,   { length: { maximum: 5 })
+  validates(:state, { length: { is: 2 }})
+  validates(:zip, 	{ numericality: { only_integer: true }})
+  validates(:zip,   { length: { is: 5 }})
 end
 
 
