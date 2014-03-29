@@ -19,4 +19,6 @@ class ApplicationController < ActionController::Base
       redirect_to(root_path)
     end
   end
+
+  helper_method(:current_user, :logged_in?)
 end
