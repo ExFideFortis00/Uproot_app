@@ -15,5 +15,10 @@
 require 'spec_helper'
 
 describe MovePlan do
+	it { should belong_to(:move) }
+
+	it { should ensure_length_of(:target_state).is_equal_to(2) }
+	it { should validate_numericality_of(:target_zip) }
+	it { should ensure_length_of(:target_zip).is_equal_to(5) }
 
 end

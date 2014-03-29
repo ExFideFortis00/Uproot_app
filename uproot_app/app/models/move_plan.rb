@@ -15,4 +15,8 @@
 class MovePlan < ActiveRecord::Base
 	belongs_to :move
 
+	validates(:target_state, { length: { is: 2 }})
+  	validates(:target_zip, 	{ numericality: { only_integer: true }})
+  	validates(:target_zip,   { length: { is: 5 }})
+
 end
