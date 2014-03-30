@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330001244) do
+ActiveRecord::Schema.define(version: 20140330171122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,42 +21,38 @@ ActiveRecord::Schema.define(version: 20140330001244) do
     t.string   "name"
     t.string   "kind_of"
     t.string   "picture_url"
-    t.string   "room"
-    t.string   "item_condition"
+    t.string   "current_room"
+    t.string   "condition"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "move_plans", force: true do |t|
-    t.string   "target_address"
-    t.string   "target_city"
-    t.string   "target_state"
-    t.string   "target_zip"
-    t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "move_id"
+    t.string   "target_room"
   end
 
   create_table "moves", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "budget",          precision: 10, scale: 2, default: 0.0
+    t.string   "name"
+    t.string   "start_address"
+    t.string   "start_city"
+    t.string   "start_state"
+    t.integer  "start_zip"
+    t.string   "target_address"
+    t.string   "target_city"
+    t.string   "target_state"
+    t.integer  "target_zip"
+    t.text     "description"
+    t.string   "move_out_date"
+    t.string   "move_in_date"
+    t.integer  "target_budget"
+    t.integer  "actual_budget"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "start_location"
-    t.string   "target_location"
-    t.string   "description"
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",                                null: false
-    t.string   "last_name",                                 null: false
-    t.string   "email",                                     null: false
-    t.string   "current_address",                           null: false
-    t.string   "city",                                      null: false
-    t.string   "state",           limit: 2,                 null: false
-    t.integer  "zip",             limit: 8,                 null: false
-    t.boolean  "admin?",                    default: false
+    t.string   "first_name",                      null: false
+    t.string   "last_name",                       null: false
+    t.string   "email",                           null: false
+    t.boolean  "admin?",          default: false
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"

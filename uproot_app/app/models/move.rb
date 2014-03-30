@@ -13,8 +13,10 @@ class Move < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :belongings
-	has_many :move_plans
 
-	validates(:user_id, { :presence => true } )
-	validates(:budget, { numericality: { only_integer: true }})
+	validates(:name, { :presence => true })
+	validates(:target_budget, :actual_budget, { numericality: { only_integer: true }})
+	validates(:start_state, :target_state, { length: { is: 2 }})
+	validates(:start_zip, :target_zip, { length: { is: 5 }})
+	validates(:start_zip, :target_zip, { numericality: { only_integer: true }})
 end

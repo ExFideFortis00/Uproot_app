@@ -16,5 +16,5 @@
 class Belonging < ActiveRecord::Base
 	belongs_to :move
 
-	validates(:move_id, :name, { :presence => true })
+	validates(:name, :kind_of, :condition, { :presence => true })
 end
