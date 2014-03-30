@@ -5,6 +5,8 @@ UprootApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get 'admin', :to => "access#index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -17,10 +19,12 @@ UprootApp::Application.routes.draw do
     resources :belongings
     resources :move_plans
 
+
   #routes needed for session creation
   get  "/session/new"  => "session#new"
   post "/session"      => "session#create"
   get  "/logout"       => "session#destroy"
+
 
 #         Prefix Verb   URI Pattern                    Controller#Action
 #           root GET    /                              welcome#index

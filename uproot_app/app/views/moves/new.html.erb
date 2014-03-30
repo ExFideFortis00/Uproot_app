@@ -1,0 +1,20 @@
+<h1>Create a new move</h1>
+
+<!-- form_for(a model) -->
+<%= form_for(@move) do |f| %>
+  <%= f.label(:start_location) %>  
+  <%= f.text_field(:start_location) %>
+  <%= f.label(:target_location) %>
+  <%= f.text_field(:target_location) %>
+  <%= f.label(:description) %>
+  <%= f.text_field(:description) %>
+  <%= f.label(:user_id) %>
+  <%= f.number_field(:user_id) %>
+  <%= f.label(:budget) %>
+  <%= f.number_field(:budget) %>
+  <%= f.submit %>
+<% end %>
+
+<% @move.errors.messages.each do |attr, message| %>
+  <p>error on <%= attr %><%= message %></p>
+<% end %>

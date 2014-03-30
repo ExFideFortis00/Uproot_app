@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       # store user id in session
       # i made up the key. i could call it football
       session[:user_id] = user.id
-      redirect_to("/")
+      redirect_to("/moves")
     else
       # rerender the login form
       render(:new)

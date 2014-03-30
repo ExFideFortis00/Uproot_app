@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328234847) do
+ActiveRecord::Schema.define(version: 20140330001244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,12 @@ ActiveRecord::Schema.define(version: 20140328234847) do
 
   create_table "moves", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "budget",     precision: 10, scale: 2, default: 0.0
+    t.decimal  "budget",          precision: 10, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "start_location"
+    t.string   "target_location"
+    t.string   "description"
   end
 
   create_table "users", force: true do |t|
