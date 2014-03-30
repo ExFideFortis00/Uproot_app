@@ -23,10 +23,6 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :email,
-      :current_address,
-      :city,
-      :state,
-      :zip,
       :password,
       :password_confirmation
     )
