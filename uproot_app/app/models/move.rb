@@ -15,8 +15,8 @@ class Move < ActiveRecord::Base
 	has_many :belongings
 
 	validates(:name, { :presence => true })
-	validates(:target_budget, :actual_budget, { numericality: { only_integer: true }})
-	validates(:start_state, :target_state, { length: { is: 2 }})
-	validates(:start_zip, :target_zip, { length: { is: 5 }})
-	validates(:start_zip, :target_zip, { numericality: { only_integer: true }})
+	# validates(:target_budget, :actual_budget, { numericality: { only_integer: true }})
+	# validates(:start_state, :target_state, { length: { is: 2 }})
+	# validates(:start_zip, :target_zip, { length: { is: 5 }})
+	# validates(:start_zip, :target_zip, { numericality: { only_integer: true }})
 end
