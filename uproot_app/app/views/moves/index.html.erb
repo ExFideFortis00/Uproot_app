@@ -14,7 +14,9 @@
 <!-- 	This path links a user to the individual move page user move path requires 1 parameter (current_user) -->
 	  <li><%= link_to(move.name, user_moves_path(current_user))%></li><!-- 
 	  This path links a user to their inventory and requires 2 parameters  -->
-	  <li><%= link_to("Inventory", user_move_belongings_path(current_user, move)) %></li>
+	  <li><%= link_to("Inventory", user_move_belongings_path(current_user, move)) %></li> 
+	  <li><%= link_to("Add Inventory", new_user_move_belonging_path(current_user, move)) %></li>
+
 	<% end %>
 	</ul>
 

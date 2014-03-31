@@ -2,7 +2,7 @@ class BelongingsController < ApplicationController
 
 #GET    /users/:user_id/moves/:move_id/belongings
 	def index
-		@belongings = Belonging.all
+    @belongings = Belonging.find_by(id: params[:id])
 	end
 
 #GET    /users/:user_id/moves/:move_id/belongings/new(.:format)
