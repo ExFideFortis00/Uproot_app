@@ -1,21 +1,31 @@
 <h1> Welcome to UpR00T </h1>
 
-<p>Hi, <%= current_user.first_name %>!</p>
-<p>
-	<a href="/logout"> Logout</a>
-</p>
+<% if logged_in? %>
 
-<!-- A listing of all of the moves available to this user with a nice icon to go along with each one -->
+	<p>Hi, <%= current_user.first_name %>!</p>
+	<p>
+		<a href="/logout"> Logout</a>
+	</p>
 
-<ul>
-<% @moves.each do |move| %>
-  <li><%= link_to(move.name, move_path(move) ) %></li>
-  <li><a href="/belongings"><%= "Inventory" %></a></li>
+	<!-- A listing of all of the moves available to this user with a nice icon to go along with each one -->
+
+	<ul>
+	<% @moves.each do |move| %>
+<!-- 	This path links a user to the individual move page user move path requires 1 parameter (current_user) -->
+	  <li><%= link_to(move.name, user_moves_path(current_user))%></li><!-- 
+	  This path links a user to their inventory and requires 2 parameters  -->
+	  <li><%= link_to("Inventory", user_move_belongings_path(current_user, move)) %></li>
+	<% end %>
+	</ul>
+
+
+	<!-- create a new move -->
+	<p>
+	  <li><%= link_to("Create a New Move", new_user_move_path(current_user)) %></li>
+	</p>
+
+<% else %>
+<!-- 
+redirect to homepage -->
+
 <% end %>
-</ul>
-
-
-<!-- create a new move -->
-<p>
-  <a href="/moves/new">Create a New Move</a>
-</p>

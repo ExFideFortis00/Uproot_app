@@ -1,5 +1,3 @@
-# == Route Map (Updated 2014-03-31 09:34)
-#
 #                   Prefix Verb   URI Pattern                                                  Controller#Action
 #                     root GET    /                                                            welcome#index
 #                    admin GET    /admin(.:format)                                             access#index

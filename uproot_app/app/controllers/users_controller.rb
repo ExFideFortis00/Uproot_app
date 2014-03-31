@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
+#GET    /users/new
   def new
   	@user = User.new
   end
 
+#POST   /users
   def create
   	@user = User.new(user_params)
     if @user.save
@@ -12,6 +14,14 @@ class UsersController < ApplicationController
       # render the new.html.erb file with @user
       render :new
     end
+  end
+
+#GET    /users/:id/edit
+  def edit
+  end
+
+#DELETE /users/:id
+  def destroy
   end
 
   private
