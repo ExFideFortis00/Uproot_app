@@ -1,33 +1,6 @@
-UprootApp::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'welcome#index'
-
-  get 'admin', :to => "access#index"
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :users do
-      resources :moves do
-        resources :belongings
-      end
-    end
-
-
-  #routes needed for session creation
-  get  "/session/new"  => "session#new"
-  post "/session"      => "session#create"
-  get  "/logout"       => "session#destroy"
-
-
-# Prefix Verb   URI Pattern                                                  Controller#Action
+# == Route Map (Updated 2014-03-31 09:34)
+#
+#                   Prefix Verb   URI Pattern                                                  Controller#Action
 #                     root GET    /                                                            welcome#index
 #                    admin GET    /admin(.:format)                                             access#index
 #     user_move_belongings GET    /users/:user_id/moves/:move_id/belongings(.:format)          belongings#index
@@ -57,6 +30,36 @@ UprootApp::Application.routes.draw do
 #              session_new GET    /session/new(.:format)                                       session#new
 #                  session POST   /session(.:format)                                           session#create
 #                   logout GET    /logout(.:format)                                            session#destroy
+#
+
+UprootApp::Application.routes.draw do
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"
+  root 'welcome#index'
+
+  get 'admin', :to => "access#index"
+
+  # Example of regular route:
+  #   get 'products/:id' => 'catalog#view'
+
+  # Example of named route that can be invoked with purchase_url(id: product.id)
+  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+
+  # Example resource route (maps HTTP verbs to controller actions automatically):
+    resources :users do
+      resources :moves do
+        resources :belongings
+      end
+    end
+
+
+  #routes needed for session creation
+  get  "/session/new"  => "session#new"
+  post "/session"      => "session#create"
+  get  "/logout"       => "session#destroy"
+
 
 
   # Example resource route with options:

@@ -2,11 +2,24 @@
 #
 # Table name: moves
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  budget     :decimal(10, 2)   default(0.0)
-#  created_at :datetime
-#  updated_at :datetime
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  name           :string(255)
+#  start_address  :string(255)
+#  start_city     :string(255)
+#  start_state    :string(255)
+#  start_zip      :integer
+#  target_address :string(255)
+#  target_city    :string(255)
+#  target_state   :string(255)
+#  target_zip     :integer
+#  description    :text
+#  move_out_date  :string(255)
+#  move_in_date   :string(255)
+#  target_budget  :integer
+#  actual_budget  :integer
+#  created_at     :datetime
+#  updated_at     :datetime
 #
 
 require 'spec_helper'
