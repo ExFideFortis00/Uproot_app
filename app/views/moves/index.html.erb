@@ -9,21 +9,18 @@
 
 	<!-- A listing of all of the moves available to this user with a nice icon to go along with each one -->
 
-	<ul>
+	<col>
 	<% @moves.each do |move| %>
-<!-- 	This path links a user to the individual move page user move path requires 1 parameter (current_user) -->
-	  <li><%= link_to(move.name, user_moves_path(current_user))%></li><!-- 
-	  This path links a user to their inventory and requires 2 parameters  -->
-	  <li><%= link_to("Inventory", user_move_belongings_path(current_user, move)) %></li> 
-	  <li><%= link_to("Add Inventory", new_user_move_belonging_path(current_user, move)) %></li>
-
+		<p><a href="/moves/<%= move.id %>"><%= move.name %></a></p>
+		<p><a href="/moves/<%= move.id %>/belongings/new"> Add Belongings </a></p> |
+		<a href="/moves/<%= move.id %>/belongings"> View Belongings </a>
 	<% end %>
-	</ul>
+	</col>
 
 
 	<!-- create a new move -->
 	<p>
-	  <li><%= link_to("Create a New Move", new_user_move_path(current_user)) %></li>
+	  <li><a href="/moves/new"> Create a New Move</a></li>
 	</p>
 
 <% else %>

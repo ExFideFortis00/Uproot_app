@@ -1,1 +1,22 @@
 <h1>Add New Belonging</h1>
+
+<%= form_for(@belonging, url: new_move_belonging_path) do |f| %>
+  <%= f.label(:name) %>  
+  <%= f.text_field(:name) %>  
+  <%= f.label(:kind_of) %>  
+  <%= f.text_field(:kind_of) %>  
+  <%= f.label(:picture_url) %>  
+  <%= f.url_field(:picture_url) %>  
+  <%= f.label(:current_room) %>  
+  <%= f.text_field(:current_room) %>  
+  <%= f.label(:target_room) %>  
+  <%= f.text_field(:target_room) %>  
+  <%= f.label(:condition) %>  
+  <%= f.text_field(:condition) %>
+
+  <%= f.submit %>
+<% end %>
+
+<% @belonging.errors.messages.each do |attr, message| %>
+  <p>error on <%= attr %><%= message %></p>
+<% end %>

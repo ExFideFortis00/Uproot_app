@@ -1,46 +1,46 @@
 class MovesController < ApplicationController
 
-#GET    /users/:user_id/moves
-	def index
-		@moves = current_user.moves
-	end
+#GET    /users
+  def index
+    @moves = current_user.moves
+  end
 
-#GET    /users/:user_id/moves/new
-	def new
-		@move = Move.new
-	end
+#GET    /users/new
+  def new
+    @move = Move.new
+  end
 
-#POST   /users/:user_id/moves
-	def create
-		@move = Move.new(move_params)
+#POST   /users
+  def create
+    @move = Move.new(move_params)
         current_user.moves << @move
     if @move.save
-    		redirect_to(user_moves_path(current_user))
-    	else
-      	# render the new.html.erb file with @user
-      		render :new
-    	end
+        redirect_to("/moves")
+      else
+        # render the new.html.erb file with @user
+          render :new
+      end
     end
 
-#GET    /users/:user_id/moves/:id
+#GET    /users/:id
   def show
     @move = Move.find_by(id: params[:id])
   end
 
-#GET    /users/:user_id/moves/:id/edit
-#PUT    /users/:user_id/moves/:id
+#GET    /users/:id/edit
+#PUT    /users/:id
   def edit
   end
 
-#DELETE /users/:user_id/moves/:id(.:format)
-	def destroy
-	end
+#DELETE /users/:id
+  def destroy
+  end
 
 
-	private
+  private
 
-  	def move_params
-    	params.require(:move).permit(
+    def move_params
+      params.require(:move).permit(
       :name,
       :description,
       :start_address,

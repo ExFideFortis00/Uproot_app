@@ -1,47 +1,56 @@
 class BelongingsController < ApplicationController
 
-#GET    /users/:user_id/moves/:move_id/belongings
-	def index
-    @belongings = Belonging.find_by(id: params[:id])
-	end
+#GET    /belongings
 
-#GET    /users/:user_id/moves/:move_id/belongings/new(.:format)
-	def new
-		@belonging = Belonging.new
-	end
+  def index
+    if params[:move_id]
+      render :text => "Got move id #{params[:move_id]}"
+      @belongings = Belonging.where(move_id: params[:move_id])
+    else
+      render :text => "No move id."
+    end
 
-#POST   /users/:user_id/moves/:move_id/belongings
-	def create
-		@belonging = Belonging.new(belonging_params)
+  end
 
-		if @belonging.save
-    		redirect_to("/users/#{:user.id}/moves/#{:move.id}/belongings")
-    	else
-      	# render the new.html.erb file with @user
-      		render :new
-    	end
-	end
 
-#GET    /users/:user_id/moves/:move_id/belongings/:id/edit
-#PUT    /users/:user_id/moves/:move_id/belongings/:id
+#GET    /belongings/new
+  def new
+    @belonging = Belonging.new
+  end
+
+#POST   /belongings
+  def create
+    @belonging = Belonging.new(belonging_params)
+    @belonging.move_id = current_user.moves(params[:id])
+    if @belonging.save
+        redirect_to("/moves/:move_id/belongings")
+      else
+        # render the new.html.erb file with @user
+          render :new
+      end
+  end
+
+
+#GET    /belongings/:id/edit
+#PUT    /belongings/:id
   def edit
   end
 
-#DELETE /users/:user_id/moves/:move_id/belongings/:id
-	def destroy
-	end
+#DELETE /belongings/:id
+  def destroy
+  end
 
-	private
+  private
 
-  	def move_params
-  		params.require(:belonging).permit(
+    def belonging_params
+      params.require(:belonging).permit(
         :move_id,
-  			:name,
-  			:kind_of,
-  			:picture_url,
-  			:current_room,
-  			:target_room,
-  			:condition
-  			)
-  	end
+        :name,
+        :kind_of,
+        :picture_url,
+        :current_room,
+        :target_room,
+        :condition
+        )
+    end
 end
