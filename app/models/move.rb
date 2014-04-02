@@ -34,13 +34,20 @@
 #
 
 class Move < ActiveRecord::Base
-
 	belongs_to :user
 	has_many :belongings
 
 	validates(:name, { :presence => true })
+
+	#make sure that the budget elements are integers only
 	# validates(:target_budget, :actual_budget, { numericality: { only_integer: true }})
-	# validates(:start_state, :target_state, { length: { is: 2 }})
-	# validates(:start_zip, :target_zip, { length: { is: 5 }})
+	
+	#make sure that zip codes are only integers
 	# validates(:start_zip, :target_zip, { numericality: { only_integer: true }})
+	
+	#to noramlize data for sorting purposes later, states should only be expresed in two letters (Ex. NY for New York)
+	# validates(:start_state, :target_state, { length: { is: 2 }})
+	
+	#to normalize data and ensure that zip codes are only expressed as 5 integers
+	# validates(:start_zip, :target_zip, { length: { is: 5 }})
 end

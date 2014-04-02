@@ -31,8 +31,10 @@ describe Move do
 	it { should validate_presence_of(:name)}
 	# it { should ensure_length_of(:start_state).is_equal_to(2) }
 	# it { should ensure_length_of(:target_state).is_equal_to(2) }
-	# it { should ensure_length_of(:start_zip).is_equal_to(5) }
-	# it { should ensure_length_of(:target_zip).is_equal_to(5) }
+
+	#there two tests are commented out because for some reason rspec is attempting to validate the length of these by passing "xxxxx" which is being rendered as "0" and is erroring out. Strange because the test above passes with no problem...
+	#it { should ensure_length_of(:start_zip).is_equal_to(5) }
+	#it { should ensure_length_of(:target_zip).is_equal_to(5) }
 
 	# it { should validate_numericality_of(:target_budget).only_integer }
 	# it { should validate_numericality_of(:actual_budget).only_integer }

@@ -15,7 +15,9 @@
 #
 
 class Belonging < ActiveRecord::Base
+	#all belongings belongs_to a move
 	belongs_to :move
 
 	validates(:name, :kind_of, :condition, { :presence => true })
+	# make "kind_of" and "conditions" dropdown menus in my views so that these elements can be normalized. Users will have the ability to add other "kinds of items" and "Conditions" to the predetemined list, but would be good to use as a starting point 
 end
