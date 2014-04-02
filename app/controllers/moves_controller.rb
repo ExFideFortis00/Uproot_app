@@ -1,4 +1,3 @@
-require 'pry'
 class MovesController < ApplicationController
 
 #GET    /users
