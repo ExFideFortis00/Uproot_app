@@ -6,7 +6,7 @@ Problem Being Solved:
 Solution:
 
 #### Execution ####
-ERD: A link to all Uproot ERDs can be found at: https://www.dropbox.com/home/Uproot_app.
+ERD: A link to all Uproot ERDs can be found at: https://www.dropbox.com/home/Uproot_app as well as in the ```app/assets/images``` folder
 
 Pivotal Tracker Link: https://www.pivotaltracker.com/s/projects/1047416#
 
