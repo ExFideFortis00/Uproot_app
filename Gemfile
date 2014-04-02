@@ -44,6 +44,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#Static Asset Serving
+  gem 'rails_12factor', group: :production
+
 group :development, :test do
 # rspec for rails. set up with `rails g rpsec:install`
 # https://github.com/rspec/rspec-rails
@@ -60,3 +63,4 @@ group :development, :test do
   #rails-erd
   gem 'rails-erd'
 end
+
