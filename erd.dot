@@ -1,0 +1,63 @@
+digraph UprootApp {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "UprootApp domain model\n\n";
+m_Belonging [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Belonging</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="condition">condition <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="current_room">current_room <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="kind_of">kind_of <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="picture_url">picture_url <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="target_room">target_room <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Move [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Move</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="actual_budget">actual_budget <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="move_in_date">move_in_date <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="move_out_date">move_out_date <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="start_address">start_address <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="start_city">start_city <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="start_state">start_state <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="start_zip">start_zip <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="target_address">target_address <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="target_budget">target_budget <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="target_city">target_city <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="target_state">target_state <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="target_zip">target_zip <font face="Arial Italic" color="grey60">integer</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="admin?">admin? <font face="Arial Italic" color="grey60">boolean</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="first_name">first_name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="last_name">last_name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Move -> m_Belonging [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Move [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Belonging [style = "dotted", arrowhead = "normal", arrowtail = "none", weight = "1", constraint = "false"];
+}
