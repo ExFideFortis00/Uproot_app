@@ -1,6 +1,7 @@
-<h1>Add New Belonging</h1>
+<h1>Edit Belongings</h1>
 
-<%= form_for(@belonging, url: {action: "create"}) do |f| %>  <!-- url: "/moves/:move_id/belongings" -->
+<%= form_for @belonging, url: {action: "update"} do |f| %>
+
   <%= f.label(:name) %>  
   <%= f.text_field(:name) %>  
   <%= f.label(:kind_of) %>  
@@ -13,11 +14,6 @@
   <%= f.text_field(:target_room) %>  
   <%= f.label(:condition) %>  
   <%= f.text_field(:condition) %>
-  <%= f.hidden_field(:move_id, :value => @move.id) %>
 
   <%= f.submit %>
-<% end %>
-
-<% @belonging.errors.messages.each do |attr, message| %>
-  <p>error on <%= attr %><%= message %></p>
 <% end %>

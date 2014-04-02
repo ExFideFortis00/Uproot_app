@@ -46,9 +46,9 @@ UprootApp::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
-    resources :moves do
-      resources :belongings
-    end
+    resources :moves
+    resources :belongings
+    get "belongings/:move_id/new" => "belongings#new"
 
   #routes needed for session creation
   get  "/session/new"  => "session#new"

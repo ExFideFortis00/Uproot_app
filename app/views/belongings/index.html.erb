@@ -12,7 +12,7 @@ The second will allow you to delete the belonging -->
 <% @belongings.each do |belonging| %>
 	<p><%= belonging.name %> | <%= belonging.kind_of %></p>
 	<p><img src="<%= belonging.picture_url %>"></p>
-	<a href="/belongings/:id/edit">Edit Item</a>
-	<a href="/belongings/:id"> Delete Item </a>
+	<a href="/moves/:id/belongings/<%= belonging.id %>/edit">Edit Item</a>
+	<a href="/moves/:move_id/belongings/<%= belonging.id %>"> Delete Item </a>
 <% end %>
 </ul>

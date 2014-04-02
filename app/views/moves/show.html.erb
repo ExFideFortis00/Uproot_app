@@ -1,0 +1,14 @@
+<%= @move.name %>
+<p><a href="/belongings/<%= @move.id %>/new" > Add Belongings </a></p>
+
+<ul>
+<% @move.belongings.each do |belonging| %>
+	<li>
+		<img src="<%= belonging.picture_url %>">
+		<%= belonging.name %>
+		<a href="<%= edit_belonging_path(belonging.id) %>">EDIT</a>
+		<%= link_to 'Delete', belonging_path(belonging.id), :method => :delete %>	
+	</li>
+
+<% end %>
+</ul>

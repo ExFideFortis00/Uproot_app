@@ -1,0 +1,44 @@
+<h1>Edit Moves</h1>
+
+<%= form_for @move, url: {action: "update"} do |f| %>
+  <%= f.label(:name) %>  
+  <%= f.text_field(:name) %>
+
+  <%= f.label(:description) %>
+  <%= f.text_field(:description) %>
+
+  <%= f.label(:start_address) %>
+  <%= f.text_field(:start_address) %>
+
+  <%= f.label(:start_city) %>
+  <%= f.text_field(:start_city) %>
+
+  <%= f.label(:start_state) %>
+  <%= f.text_field(:start_state) %> 
+
+  <%= f.label(:start_zip) %>  
+  <%= f.number_field(:start_zip) %>
+
+  <%= f.label(:target_address) %>
+  <%= f.text_field(:target_address) %>
+
+  <%= f.label(:target_city) %>
+  <%= f.text_field(:target_city) %>
+
+  <%= f.label(:target_state) %>
+  <%= f.text_field(:target_state) %>
+
+  <%= f.label(:target_zip) %>
+  <%= f.number_field(:target_zip) %> 
+
+  <%= f.label(:target_budget) %>
+  <%= f.number_field(:target_budget) %>
+
+  <%= f.label(:move_out_date) %>
+  <%= f.date_field(:move_out_date) %>
+
+  <%= f.label(:move_in_date) %>
+  <%= f.date_field(:move_in_date) %> 
+
+  <%= f.submit %>
+<% end %>

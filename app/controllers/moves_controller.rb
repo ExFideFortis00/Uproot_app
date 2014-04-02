@@ -1,3 +1,4 @@
+require 'pry'
 class MovesController < ApplicationController
 
 #GET    /users
@@ -13,7 +14,7 @@ class MovesController < ApplicationController
 #POST   /users
   def create
     @move = Move.new(move_params)
-        current_user.moves << @move
+    current_user.moves << @move
     if @move.save
         redirect_to("/moves")
       else
@@ -30,10 +31,20 @@ class MovesController < ApplicationController
 #GET    /users/:id/edit
 #PUT    /users/:id
   def edit
+    @move = Move.find(params[:id])
+  end
+
+  def update
+    @move = Move.find(params[:id])
+    @move.update(move_params)
+    redirect_to moves_path
   end
 
 #DELETE /users/:id
   def destroy
+    move = Move.find(params[:id])
+    move.destroy
+    redirect_to moves_path
   end
 
 

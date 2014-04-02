@@ -9,13 +9,16 @@
 
 	<!-- A listing of all of the moves available to this user with a nice icon to go along with each one -->
 
-	<col>
+	<ul>
+		<li>
 	<% @moves.each do |move| %>
-		<p><a href="/moves/<%= move.id %>"><%= move.name %></a></p>
-		<p><a href="/moves/<%= move.id %>/belongings/new"> Add Belongings </a></p> |
-		<a href="/moves/<%= move.id %>/belongings"> View Belongings </a>
+		<p><a href="/moves/<%= move.id %>"> <%= move.name %> </a></p>
+		<p><a href="/moves/<%= move.id %>/edit"> Edit Move </a></p>
+
+		<p><%= link_to "Delete Move", move_path(move.id), :method => :delete %></p>
 	<% end %>
-	</col>
+		</li>
+	</ul>
 
 
 	<!-- create a new move -->
